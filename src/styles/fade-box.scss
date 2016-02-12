@@ -1,3 +1,14 @@
+@mixin linearGradient($top, $bottom, $from, $to){
+  background: $top; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top $from, $bottom $to); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop($from,$top), color-stop($to,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top $from,$bottom $to); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top $from,$bottom $to); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top $from,$bottom $to); /* IE10+ */
+  background: linear-gradient(to bottom,  $top $from,$bottom $to); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
 .fade-box {
 
   .fade-box-content {
@@ -11,9 +22,9 @@
       cursor: pointer;
 
       &:after {
+        @include linearGradient(rgba(255,255,255,0), rgba(255,255,255,1), 30%, 100%);
         content: " ";
         display: block;
-        background: linear-gradient(0deg, white, transparent 70%);
         position: absolute;
         top: 0;
         left: 0;
