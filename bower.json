@@ -1,0 +1,21 @@
+{
+  "name": "fade box",
+  "version": "1.0.0",
+  "authors": [
+    "teriksson <therese@teriksson.se>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "sass-mediaqueries": "~1.4.0",
+    "modularized-normalize-scss": "~3.0.2",
+    "normalize-strings": "normalize#~1.0.4"
+  }
+}
