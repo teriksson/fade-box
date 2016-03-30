@@ -9,6 +9,5 @@ node_modules
 
 # Ignore gulp build files
 .sass-cache
-dist
 
 .DS_Store
