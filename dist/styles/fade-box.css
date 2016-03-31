@@ -14,7 +14,6 @@
 }
 .fade-box-fixed-height .fade-box-content {
   overflow: hidden;
-  height: 180px;
 }
 .fade-box-expand .fade-box-content {
   overflow: visible;
