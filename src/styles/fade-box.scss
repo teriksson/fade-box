@@ -1,3 +1,16 @@
+$colorCollection: (
+        green: #e0f5d6,
+        darkGreen: #cc0935,
+        red: #cc0935,
+        greyMedium: #898a8a,
+        purple: #990099,
+        yellow: #fdb911,
+        lightBlue: #ccebff,
+        blue: #0099ff,
+        cyan: #0099ff,
+        whiteOrange: #ff6600
+);
+
 @mixin linearGradient($top, $bottom, $from, $to) {
   background: $top; /* Old browsers */
   background: -moz-linear-gradient(top, $top $from, $bottom $to); /* FF3.6+ */
@@ -42,6 +55,16 @@
       left: 0;
       width: 100%;
       height: 100%;
+    }
+
+    @each $colorName, $colorHex in $colorCollection {
+      .fade-box-overflow.#{$colorName} {
+        @include linearGradient(
+                rgba(red($colorHex), green($colorHex), blue($colorHex), 0),
+                rgba(red($colorHex), green($colorHex), blue($colorHex), 1),
+                0%, 100%
+        );
+      }
     }
 
     .fade-box-expand & {
