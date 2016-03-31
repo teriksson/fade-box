@@ -1,3 +1,7 @@
+.fade-box {
+  position: relative;
+}
+
 .fade-box-content {
   position: relative;
 }

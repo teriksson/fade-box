@@ -8,6 +8,9 @@
   background: linear-gradient(to bottom, $top $from, $bottom $to); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0); /* IE6-9 */
 }
+.fade-box {
+  position: relative;
+}
 
 .fade-box-content {
   position: relative;
