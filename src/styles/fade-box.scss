@@ -58,7 +58,7 @@ $colorCollection: (
     }
 
     @each $colorName, $colorHex in $colorCollection {
-      .fade-box-overflow.#{$colorName} {
+      .fade-box-overflow.#{$colorName} & {
         @include linearGradient(
                 rgba(red($colorHex), green($colorHex), blue($colorHex), 0),
                 rgba(red($colorHex), green($colorHex), blue($colorHex), 1),
