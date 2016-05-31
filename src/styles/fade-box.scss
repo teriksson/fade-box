@@ -47,7 +47,7 @@ $colorCollection: (
 
   &:after {
     .fade-box-overflow & {
-      @include linearGradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), 0%, 100%);
+      @include linearGradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), 50%, 100%);
       content: " ";
       display: block;
       position: absolute;
@@ -58,11 +58,11 @@ $colorCollection: (
     }
 
     @each $colorName, $colorHex in $colorCollection {
-      .fade-box-overflow.#{$colorName} & {
+      .fade-box-overflow.#{"" + $colorName} & {
         @include linearGradient(
                 rgba(red($colorHex), green($colorHex), blue($colorHex), 0),
                 rgba(red($colorHex), green($colorHex), blue($colorHex), 1),
-                0%, 100%
+                50%, 100%
         );
       }
     }

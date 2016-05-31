@@ -9,7 +9,9 @@
             expandClassName: 'fade-box-expand',
             contentSelector: '.fade-box-content',
             fixedHeightClassName: 'fade-box-fixed-height',
-            oneClick: false
+            oneClick: false,
+            triggerSelector: '.fade-box-content',
+            triggerOnClassName: 'on'
         },
         function () {
             var _self = this;
@@ -17,6 +19,7 @@
             // Cache fade box content element
             _self.$content = _self.$element.find(_self.options.contentSelector);
             _self.content = _self.$content.get(0);
+            _self.$trigger = _self.$element.find(_self.options.triggerSelector);
 
             _self.$element.addClass('fade-box');
             _self.$content.addClass('fade-box-content');
@@ -24,8 +27,8 @@
             $(window)
                 .on('resize', $.proxy(_self.fit, _self));
 
-            _self.$content
-                .on('click', $.proxy(_self.toggleContent, _self));
+            _self.$element
+                .on('click', _self.options.triggerSelector, $.proxy(_self.toggleContent, _self));
 
             _self.fit();
         },
@@ -62,17 +65,19 @@
                         _self.options.overFlowClassName,
                         _self.shouldToggle
                     );
-
             },
             isOverFlowing: function () {
                 var _self = this;
                 return _self.element.clientHeight > _self.fixedHeight;
             },
-            toggleContent: function () {
+            toggleContent: function (e) {
+                e.preventDefault();
+
                 var _self = this;
 
                 if (_self.shouldToggle && _self.disabled === false) {
                     _self.$element.toggleClass(_self.options.expandClassName);
+                    _self.$trigger.toggleClass(_self.options.triggerOnClassName);
                 }
 
                 if(_self.options.oneClick){
